@@ -10,7 +10,7 @@ namespace AsyncInn.Models
         public decimal Rate { get; set; }
         public byte PetFriendly { get; set; }
 
-        public ICollection<Hotel> Hotel { get; set; }
-        public ICollection<Room> Room { get; set; }
+        public Hotel Hotel { get; set; }
+        public Room Room { get; set; }
     }
 }

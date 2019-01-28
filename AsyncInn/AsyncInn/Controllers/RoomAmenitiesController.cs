@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AsyncInn.Controllers
 {
-    public class RoomAmentitiesController : Controller
+    public class RoomAmenitiesController : Controller
     {
         public IActionResult Index()
         {
