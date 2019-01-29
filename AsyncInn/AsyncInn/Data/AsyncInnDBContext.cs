@@ -58,47 +58,71 @@ namespace AsyncInn.Data
                 new Room
                 {
                     ID = 1,
-                    Name = "",
+                    Name = "The Pad",
                     Layout = Layout.Studio,
 
                 },
                 new Room
                 {
                     ID = 2,
-                    Name = "",
+                    Name = "Relax and Meditate",
                     Layout = Layout.Studio,
 
                 },
                 new Room
                 {
                     ID = 3,
-                    Name = "",
+                    Name = "The Get Away",
                     Layout = Layout.OneBedroom,
 
                 },
                 new Room
                 {
                     ID = 4,
-                    Name = "",
+                    Name = "Comfy Office",
                     Layout = Layout.OneBedroom,
 
                 },
                 new Room
                 {
                     ID = 5,
-                    Name = "",
+                    Name = "Family Snoozer",
                     Layout = Layout.TwoBedroom,
 
                 },
                 new Room
                 {
                     ID = 6,
-                    Name = "",
+                    Name = "Party Room",
                     Layout = Layout.TwoBedroom,
 
                 });
-            //modelBuilder.Entity<Amenities>().HasData();
-
+            modelBuilder.Entity<Amenities>().HasData(
+                new Amenities
+                {
+                    ID = 1,
+                    Name = "Coffee Maker"
+                },
+                new Amenities
+                {
+                    ID = 2,
+                    Name = "TV"
+                },
+                new Amenities
+                {
+                    ID = 3,
+                    Name = "WiFi"
+                },
+                new Amenities
+                {
+                    ID = 4,
+                    Name = "Bathroom Attire"
+                },
+                new Amenities
+                {
+                ID = 5,
+                Name = "Mini Bar"
+                });
         }
 
         public DbSet<Amenities> AMENITIES { get; set; }
