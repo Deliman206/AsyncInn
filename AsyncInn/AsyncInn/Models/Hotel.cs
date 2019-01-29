@@ -9,10 +9,10 @@ namespace AsyncInn.Models
     {
         public int ID { get; set; }
         public string Name { get; set; } = "Async Inn";
-        public int Phone { get; set; }
+        public string City { get; set; }
+        public long Phone { get; set; }
         
         public ICollection<HotelRoom> HotelRoom { get; set; }
-
     }
 
 }
