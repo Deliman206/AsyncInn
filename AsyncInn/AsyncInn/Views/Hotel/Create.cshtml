@@ -1,0 +1,28 @@
+﻿@model AsyncInn.Models.Hotel;
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Create";
+}
+<h1>HOTELS</h1>
+<div class="row">
+    <form class="col s12" action="Create">
+        <div class="row">
+            <div class="input-field col s12">
+                <input placeholder="Hotel Name" type="text">
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input placeholder="City Location" type="text">
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input placeholder="Phone Number" type="number">
+            </div>
+        </div>
+        <button class="btn waves-effect waves-light" type="submit">
+            Submit
+        </button>
+    </form>
+</div>

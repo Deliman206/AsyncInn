@@ -1,0 +1,22 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model AsyncInn.Models.Amenities;
+@{
+    Layout = "_Layout";
+}
+<h1>AMENITIES</h1>
+<div class="row">
+    <form class="col s12" action="Create">
+        <div class="row">
+            <div class="input-field col s12">
+                <input placeholder="Hotel Name" id="@Model.Name" type="text">
+            </div>
+        </div>
+        <button class="btn waves-effect waves-light" type="submit">
+            Submit
+        </button>
+    </form>
+</div>
