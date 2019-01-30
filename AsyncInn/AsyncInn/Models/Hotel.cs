@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace AsyncInn.Models
 {
-    public class Hotel
+    public class Hotel 
     {
         public int ID { get; set; }
         public string Name { get; set; } = "Async Inn";

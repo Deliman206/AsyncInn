@@ -29,16 +29,18 @@ namespace AsyncInn.Models.Services
             return await  _context.HOTEL.FirstOrDefaultAsync(h => h.ID == id);
         }
 
-        public void UpdateHotel(Hotel hotel)
+        public async Task UpdateHotel(Hotel hotel)
         {
             _context.HOTEL.Update(hotel);
+            await _context.SaveChangesAsync();
+
         }
 
-        public void DeleteHotel(int id)
+        public async Task DeleteHotel(int id)
         {
             Hotel hotel = _context.HOTEL.FirstOrDefault(h => h.ID == id);
             _context.HOTEL.Remove(hotel);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
     }
 }
