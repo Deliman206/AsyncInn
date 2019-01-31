@@ -2,17 +2,18 @@
 @model AsyncInn.Models.Amenities;
 @{
     Layout = "_Layout";
+    ViewData["Title"] = "Edit";
 }
 <h1>AMENITIES</h1>
 <div class="row">
-    <form class="col s12" action="Create">
+    <form class="col s12" asp-action="Edit">
         <div class="row">
-            <div class="input-field col s12">
-                <input placeholder="Hotel Name" id="@Model.Name" type="text" value="@Model.Name">
+            <div class="input-field col s6">
+                <input placeholder="Hotel Name" asp-for="@Model.Name">
+            </div>
+            <div class="input-field col s6">
+                <input class="btn waves-effect waves-light" type="submit" value="submit"/>
             </div>
         </div>
-        <button class="btn waves-effect waves-light" type="submit">
-            Submit
-        </button>
     </form>
 </div>

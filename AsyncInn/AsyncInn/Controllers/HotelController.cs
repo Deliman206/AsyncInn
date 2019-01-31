@@ -13,7 +13,7 @@ namespace AsyncInn.Controllers
     public class HotelController : Controller
     {
         private readonly IHotelManeger _contextInterface;
-        private AsyncInnDbContext _contextDB { get; }
+        private AsyncInnDbContext _contextDB { get; set; }
 
 
         public HotelController(IHotelManeger context, AsyncInnDbContext contextDB)
@@ -21,17 +21,29 @@ namespace AsyncInn.Controllers
             _contextInterface = context;
             _contextDB = contextDB;
         }
-
-        // Initial Render
-        // refactor to async
+        
         public IActionResult Index()
         {
-            return View(_contextDB.HOTEL.ToList());
+           List<Hotel> list = _contextDB.HOTEL.ToList();
+            return View(list);
         }
 
         public IActionResult Create()
         {
             return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> Index(string searchString)
+        {
+            var hotels = from h in _contextDB.HOTEL
+                         select h;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                 hotels = hotels.Where(s => s.Name.Contains(searchString));
+            }
+
+            return View(await hotels.ToListAsync());
         }
 
         [HttpPost]
@@ -56,7 +68,7 @@ namespace AsyncInn.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(int id, [Bind("Name, City, Phone")] Hotel hotel)
+        public async Task<IActionResult> Edit(int id, [Bind("Name, City, Phone, ID")] Hotel hotel)
         {
             if (ModelState.IsValid)
             {
@@ -66,7 +78,7 @@ namespace AsyncInn.Controllers
             }
             return View();
         }
-        [HttpPost]
+        [HttpGet]
         public async Task<IActionResult> Delete(int id)
         {
             if (ModelState.IsValid)
@@ -75,8 +87,6 @@ namespace AsyncInn.Controllers
 
                 return RedirectToAction("Index");
             }
-            // Will need to refactor
-            // Send to 404 page
             return NotFound();
         }
     }

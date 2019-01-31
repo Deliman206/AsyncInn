@@ -6,24 +6,23 @@
 
 <h1>HOTELS</h1>
 <div class="row">
-    <form class="col s12" actions="Edit">
+    <form class="col s12" asp-action="Edit">
+        <input type="hidden" asp-for="ID"/>
         <div class="row">
             <div class="input-field col s12">
-                <input placeholder="Hotel Name" id="name" type="text" value="@Model.Name">
+                <input placeholder="Hotel Name" id="name" type="text" asp-for="Name" />
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input placeholder="City Location" id="city" type="text" value="@Model.City">
+                <input placeholder="City Location" id="city" type="text" asp-for="City" />
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input placeholder="Phone Number" id="phone" type="number" value="@Model.Phone">
+                <input placeholder="Phone Number" id="phone" type="number" asp-for="Phone" />
             </div>
         </div>
-        <button class="btn waves-effect waves-light" type="submit" name="action">
-            Submit
-        </button>
+        <input class="btn waves-effect waves-light" type="submit" value="Submit" />
     </form>
 </div>

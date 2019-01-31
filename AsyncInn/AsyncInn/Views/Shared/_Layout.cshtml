@@ -6,24 +6,42 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>@ViewBag.Title</title>
 </head>
-<body>
+<body style="display: flex; min-height: 100vh; flex-direction:column;">
     <nav class="nav-extended">
         <div class="nav-content">
             <ul class="tabs tabs-transparent">
-                <li class="tab"><a href="Home">Home</a></li>
-                <li class="tab"><a href="Hotel">Hotels</a></li>
-                <li class="tab"><a href="Room">Rooms</a></li>
-                <li class="tab"><a href="Amenities">Amenities</a></li>
-                <li class="tab"><a href="RoomAmenities">Update Hotels</a></li>
-                <li class="tab"><a href="HotelRoom">Update Rooms</a></li>
+                <li class="tab"><a asp-controller="Home" asp-action="Index">Home</a></li>
+
+                <li class="tab"><a asp-controller="Hotel" asp-action="Index">Hotels</a></li>
+                <li class="tab"><a asp-controller="Room" asp-action="Index">Rooms</a></li>
+                <li class="tab"><a asp-controller="Amenities" asp-action="Index">Amenities</a></li>
+                <li class="tab"><a asp-controller="HotelRoom" asp-action="Index">Update Hotels</a></li>
+                <li class="tab"><a asp-controller="RoomAmenities" asp-action="Index">Update Rooms</a></li>
             </ul>
         </div>
     </nav>
-    <div>
+    <div style="flex: 1 0 auto;">
         @RenderBody()
     </div>
+    <footer class="page-footer">
+        <div class="footer-copyright">
+            <div class="container">
+                © 201 Copyright Sean Miller
+            </div>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous">
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('select').formSelect();
+        });
+    </script>
 </body>
+
 </html>
 
 
