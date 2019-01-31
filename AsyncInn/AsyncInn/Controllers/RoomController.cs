@@ -46,6 +46,7 @@ namespace AsyncInn.Controllers
         {
             return View();
         }
+
         [HttpPost]
         public async Task<IActionResult> Create([Bind("Name, Layout")] Room room)
         {
@@ -56,6 +57,38 @@ namespace AsyncInn.Controllers
                 return RedirectToAction("Index");
             }
             return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Edit(int id)
+        {
+            var room = await _contextInterface.GetRoom(id);
+            if (room == null)
+                return NotFound();
+            return View(room);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(int id, [Bind("Name, Layout, ID")] Room room)
+        {
+            if (ModelState.IsValid)
+            {
+                await _contextInterface.UpdateRoom(room);
+
+                return RedirectToAction(nameof(Index));
+            }
+            return View();
+        }
+        [HttpGet]
+        public async Task<IActionResult> Delete(int id)
+        {
+            if (ModelState.IsValid)
+            {
+                await _contextInterface.DeleteRoom(id);
+
+                return RedirectToAction("Index");
+            }
+            return NotFound();
         }
     }
 }

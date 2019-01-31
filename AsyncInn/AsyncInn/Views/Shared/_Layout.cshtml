@@ -6,7 +6,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>@ViewBag.Title</title>
 </head>
-<body>
+<body style="display: flex; min-height: 100vh; flex-direction:column;">
     <nav class="nav-extended">
         <div class="nav-content">
             <ul class="tabs tabs-transparent">
@@ -20,9 +20,16 @@
             </ul>
         </div>
     </nav>
-    <div>
+    <div style="flex: 1 0 auto;">
         @RenderBody()
     </div>
+    <footer class="page-footer">
+        <div class="footer-copyright">
+            <div class="container">
+                © 201 Copyright Sean Miller
+            </div>
+        </div>
+    </footer>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
             crossorigin="anonymous">
@@ -34,6 +41,7 @@
         });
     </script>
 </body>
+
 </html>
 
 

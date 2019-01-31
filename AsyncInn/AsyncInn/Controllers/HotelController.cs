@@ -87,8 +87,6 @@ namespace AsyncInn.Controllers
 
                 return RedirectToAction("Index");
             }
-            // Will need to refactor
-            // Send to 404 page
             return NotFound();
         }
     }

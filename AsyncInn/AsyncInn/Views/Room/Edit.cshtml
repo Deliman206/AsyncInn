@@ -2,25 +2,25 @@
 @model AsyncInn.Models.Room;
 @{
     Layout = "_Layout";
+    ViewData["Title"] = "Edit";
 }
 <h1>ROOMS</h1>
 <div class="row">
-    <form class="col s12" asp-action="Create">
-        <div class="row">
-            <div class="input-field col s12">
-                <input placeholder="Hotel Name" asp-for="Name" type="text">
-            </div>
-        </div>
+    <form class="col s12" asp-action="Edit">
+        <input type="hidden" asp-for="ID" />
         <div class="row">
             <div class="input-field col s6">
-                <select class="browser-default" asp-for="Layout">
+                <input placeholder="Room Name" type="text" asp-for="Name" />
+            </div>
+            <div class="input-field col s6">
+                <select asp-for="Layout">
                     <option value="" disabled selected>Select Layout</option>
-                    <option value="1">Studio</option>
-                    <option value="2">One Bedroom</option>
-                    <option value="3">Two Bedrooms</option>
+                    <option value="studio">Studio</option>
+                    <option value="oneBedroom">One Bedroom</option>
+                    <option value="twoBedRoom">Two Bedrooms</option>
                 </select>
             </div>
         </div>
-        <input class="btn waves-effect waves-light" type="submit" value="Submit"/>
+        <input class="btn waves-effect waves-light" type="submit" value="Submit" />
     </form>
 </div>

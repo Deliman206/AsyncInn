@@ -79,7 +79,7 @@ namespace AsyncInn.Controllers
             }
             return View();
         }
-        [HttpPost]
+        [HttpGet]
         public async Task<IActionResult> Delete(int id)
         {
             if (ModelState.IsValid)

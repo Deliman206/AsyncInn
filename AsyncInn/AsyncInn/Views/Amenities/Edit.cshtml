@@ -8,10 +8,12 @@
 <div class="row">
     <form class="col s12" asp-action="Edit">
         <div class="row">
-            <div class="input-field col s12">
-                <input placeholder="Hotel Name" asp-for="@Model.Name" >
+            <div class="input-field col s6">
+                <input placeholder="Hotel Name" asp-for="@Model.Name">
+            </div>
+            <div class="input-field col s6">
+                <input class="btn waves-effect waves-light" type="submit" value="submit"/>
             </div>
         </div>
-        <input class="btn waves-effect waves-light" type="submit" value="submit"/>
     </form>
 </div>
