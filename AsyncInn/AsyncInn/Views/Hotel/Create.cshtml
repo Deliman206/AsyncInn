@@ -5,24 +5,22 @@
 }
 <h1>HOTELS</h1>
 <div class="row">
-    <form class="col s12" action="Create">
+    <form class="col s12" asp-action="Create">
         <div class="row">
             <div class="input-field col s12">
-                <input placeholder="Hotel Name" type="text">
+                <input placeholder="Hotel Name" type="text" asp-for="Name">
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input placeholder="City Location" type="text">
+                <input placeholder="City Location" type="text" asp-for="City">
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input placeholder="Phone Number" type="number">
+                <input placeholder="Phone Number" type="number" asp-for="Phone">
             </div>
         </div>
-        <button class="btn waves-effect waves-light" type="submit">
-            Submit
-        </button>
+        <input class="btn waves-effect waves-light" type="submit" value="Submit"/>
     </form>
 </div>

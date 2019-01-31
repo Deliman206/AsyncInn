@@ -1,14 +1,53 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
-@model AsyncInn.Models.Amenities;
+﻿@using AsyncInn.Models;
+@model IEnumerable<AsyncInn.Models.Amenities>;
 @{
     Layout = "_Layout";
+    ViewData["Title"] = "Index";
 }
-<table> 
-    <tr>
-        <td>Amentities Table</td>
-    </tr>
+<h1>AMENITIES</h1>
+<div class="col s12">
+    <div class="row">
+        <div class="input-field col s7">
+            <a asp-action="Create"> Create</a>
+        </div>
+        <div class="input-field col s4">
+            <form asp-controller="Hotel" asp-action="Index">
+                <p>
+                    Search: <input type="text" name="SearchString" />
+                    <input type="submit" value="Filter" />
+                </p>
+            </form>
+        </div>
+        <div class="input-field col s1"></div>
+    </div>
+</div>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (Amenities amenities in Model)
+        {
+            <tr>
+                <td>@amenities.ID</td>
+                <td>@amenities.Name</td>
+                <td>
+                    <a class="btn waves-effect waves-light" asp-action="Edit" asp-route-id="@amenities.ID">
+                        Edit
+                        <i class="material-icons">edit</i>
+                    </a>
+                </td>
+                <td>
+                    <a class="btn waves-effect waves-light" asp-action="Delete" asp-route-id="@amenities.ID">
+                        Delete
+                        <i class="material-icons">clear</i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>

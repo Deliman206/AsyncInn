@@ -27,6 +27,10 @@ namespace AsyncInn
 
             // register dependancy injection
             services.AddScoped<IHotelManeger, HotelManageService>();
+            services.AddScoped<IAmenitiesManager, AmenitiesManageService>();
+            services.AddScoped<IRoomManeger, RoomManageService>();
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

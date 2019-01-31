@@ -33,7 +33,6 @@ namespace AsyncInn.Models.Services
         {
             _context.HOTEL.Update(hotel);
             await _context.SaveChangesAsync();
-
         }
 
         public async Task DeleteHotel(int id)

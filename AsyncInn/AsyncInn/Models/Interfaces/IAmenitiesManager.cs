@@ -9,7 +9,7 @@ namespace AsyncInn.Models.Interfaces
     {
         Task CreateAmenities(Amenities amenities);
 
-        Task<Room> GetAmenities(int id);
+        Task<Amenities> GetAmenities(int id);
 
         Task UpdateAmenities(Amenities amenities);
 
