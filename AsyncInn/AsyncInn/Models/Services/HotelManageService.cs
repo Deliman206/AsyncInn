@@ -26,7 +26,14 @@ namespace AsyncInn.Models.Services
         
         public async Task<Hotel> GetHotel(int id)
         {
-            return await  _context.HOTEL.FirstOrDefaultAsync(h => h.ID == id);
+            try
+            {
+                return await  _context.HOTEL.FirstOrDefaultAsync(h => h.ID == id);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public async Task UpdateHotel(Hotel hotel)
@@ -37,9 +44,16 @@ namespace AsyncInn.Models.Services
 
         public async Task DeleteHotel(int id)
         {
-            Hotel hotel = _context.HOTEL.FirstOrDefault(h => h.ID == id);
-            _context.HOTEL.Remove(hotel);
-            await _context.SaveChangesAsync();
+            try
+            {
+                Hotel hotel = _context.HOTEL.FirstOrDefault(h => h.ID == id);
+                _context.HOTEL.Remove(hotel);
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }
