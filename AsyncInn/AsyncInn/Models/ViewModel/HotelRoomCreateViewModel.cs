@@ -11,17 +11,11 @@ namespace AsyncInn.Models.ViewModel
         public IEnumerable<Room> Rooms { get; set; }
         public HotelRoom HotelRoom { get; set; }
 
+        public int HotelID { get; set; }
+        public int RoomID { get; set; }
+        public string RoomNumber { get; set; }
+        public string Rate { get; set; }
+
         public HotelRoomCreateViewModel() { }
-
-       public HotelRoomCreateViewModel(int hotelID, int roomId, string roomNumber, string rate)
-        {
-            HotelRoom hr = new HotelRoom();
-            hr.HotelID = hotelID;
-            hr.RoomID = roomId;
-            hr.RoomNumber = roomNumber;
-            hr.Rate = rate;
-
-            HotelRoom = hr;
-        }
     }
 }

@@ -40,19 +40,19 @@ namespace AsyncInn.Controllers
             return View(vm);
         }
         [HttpPost]
-        public async Task<IActionResult> Create([Bind("HotelID, RoomID, RoomNumber, Rate")] HotelRoomCreateViewModel hr)
+        public async Task<IActionResult> Create([Bind("HotelID, RoomID, RoomNumber, Rate")] HotelRoom hotelRoom)
         {
             if (ModelState.IsValid)
             {
-                Hotel hotel = await _hotels.GetHotel(hr.HotelRoom.HotelID);
-                Room room = await _rooms.GetRoom(hr.HotelRoom.RoomID);
+                HotelRoom hr = hotelRoom as HotelRoom;
+                Hotel hotel = await _hotels.GetHotel(hr.HotelID);
+                Room room = await _rooms.GetRoom(hr.RoomID);
 
-                hotel.HotelRoom.Add(hr.HotelRoom);
-                
-                hr.HotelRoom.Hotel = hotel;
-                hr.HotelRoom.Room = room;
+                hr.Hotel = hotel;
+                hr.Room = room;
 
-                _context.HOTELROOM.Add(hr.HotelRoom);
+                hotel.HotelRoom.Add(hr);
+                _context.HOTELROOM.Add(hr);
                 await _context.SaveChangesAsync();
 
                 return RedirectToAction("Index");
