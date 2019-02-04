@@ -1,0 +1,43 @@
+﻿@model AsyncInn.Models.ViewModel.HotelRoomCreateViewModel;
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Create";
+}
+<h1>HOTELS</h1>
+<div class="row">
+    <form class="col s12" asp-action="Create">
+        <div class="row">
+            <div class="input-field col s6">
+                <select asp-for="HotelRoom.HotelID">
+                    <option value="" disabled selected>Select Hotel</option>
+                    @foreach (var hotel in Model.Hotels)
+                    {
+                        <option value="@hotel.ID">@hotel.Name</option>
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <select asp-for="HotelRoom.RoomID">
+                    <option value="" disabled selected>Select Room</option>
+                    @foreach (var room in Model.Rooms)
+                    {
+                        <option value="@room.ID">@room.Name</option>
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input placeholder="Room Number" type="text" asp-for="HotelRoom.RoomNumber">
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input placeholder="Rate" type="text" asp-for="HotelRoom.Rate">
+            </div>
+        </div>
+        <input class="btn waves-effect waves-light" type="submit" value="Submit" />
+    </form>
+</div>

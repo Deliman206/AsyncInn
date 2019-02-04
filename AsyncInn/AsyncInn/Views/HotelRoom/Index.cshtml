@@ -1,3 +1,66 @@
-﻿@{Layout = "../Shared/_Layout.cshtml";
+﻿@using AsyncInn.Models;
+@model IEnumerable<AsyncInn.Models.HotelRoom>;
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Index";
 }
-<p>Hello from Hotel Room!</p>
+@{
+    
+}
+<h1>HOTELROOMS</h1>
+
+
+<div class="col s12">
+    <div class="row">
+        <div class="input-field col s7">
+            <a asp-action="Create"> Create</a>
+        </div>
+        <div class="input-field col s4">
+            <form asp-controller="HotelRoom" asp-action="Index">
+                <p>
+                    Search: <input type="text" name="SearchString" />
+                    <input type="submit" value="Filter" />
+                </p>
+            </form>
+        </div>
+        <div class="input-field col s1"></div>
+    </div>
+</div>
+
+
+
+<table>
+    <thead>
+        <tr>
+            <th>Hotel</th>
+            <th>Room Number</th>
+            <th>Layout</th>
+            <th>Rate</th>
+            <th>Pet Friendly</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var hr in Model)
+        {
+            <tr>
+                <td>@hr.Hotel.Name</td>
+                <td>@hr.RoomNumber</td>
+                <td>@hr.Room.Layout</td>
+                <td>@hr.Rate</td>
+                <td>
+                    <a class="btn waves-effect waves-light" asp-action="Edit" asp-route-id="@hr.ID">
+                        Edit
+                        <i class="material-icons">edit</i>
+                    </a>
+                </td>
+                <td>
+                    <a class="btn waves-effect waves-light" asp-action="Delete" asp-route-id="@hr.ID">
+                        Delete
+                        <i class="material-icons">clear</i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

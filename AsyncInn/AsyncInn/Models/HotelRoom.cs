@@ -4,11 +4,11 @@ namespace AsyncInn.Models
 {
     public class HotelRoom
     {
+        public int ID { get; set; }
         public int HotelID { get; set; }
-        public decimal RoomNumber { get; set; }
         public int RoomID { get; set; }
-        public decimal Rate { get; set; }
-        public byte PetFriendly { get; set; }
+        public string RoomNumber { get; set; }
+        public string Rate { get; set; }
 
         public Hotel Hotel { get; set; }
         public Room Room { get; set; }

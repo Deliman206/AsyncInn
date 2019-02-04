@@ -128,7 +128,7 @@ namespace AsyncInn.Data
         public DbSet<Amenities> AMENITIES { get; set; }
         public DbSet<Hotel> HOTEL { get; set; }
         public DbSet<HotelRoom> HOTELROOM { get; set; }
-        public DbSet<Room> Am { get; set; }
+        public DbSet<Room> ROOM { get; set; }
         public DbSet<RoomAmenities> ROOMAMENITIES { get; set; }
 
     }

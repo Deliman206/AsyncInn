@@ -46,7 +46,7 @@ namespace AsyncInnTests
                 RoomManageService roomManageService = new RoomManageService(context);
                 await roomManageService.CreateRoom(room);
 
-                var result = context.Am.FirstOrDefault(r => r.ID == room.ID);
+                var result = context.ROOM.FirstOrDefault(r => r.ID == room.ID);
 
                 Assert.Equal(room, result);
             }
@@ -72,7 +72,7 @@ namespace AsyncInnTests
                 roomUpdate.Layout = Layout.OneBedroom;
                 
                 await roomManageService.UpdateRoom(roomUpdate);
-                var result = context.Am.FirstOrDefault(r => r.ID == room.ID);
+                var result = context.ROOM.FirstOrDefault(r => r.ID == room.ID);
 
                 Assert.Equal(room.Layout, result.Layout);
             }

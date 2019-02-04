@@ -24,14 +24,14 @@ namespace AsyncInn.Controllers
 
         public IActionResult Index()
         {
-            List<Room> list = _contextDB.Am.ToList();
+            List<Room> list = _contextDB.ROOM.ToList();
             return View(list);
         }
 
         [HttpPost]
         public async Task<IActionResult> Index(string searchString)
         {
-            var rooms = from h in _contextDB.Am
+            var rooms = from h in _contextDB.ROOM
                          select h;
 
             if (!String.IsNullOrEmpty(searchString))
