@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AsyncInn.Migrations
 {
     [DbContext(typeof(AsyncInnDbContext))]
-    [Migration("20190204074924_hrViewModel")]
-    partial class hrViewModel
+    [Migration("20190214191920_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -120,8 +120,6 @@ namespace AsyncInn.Migrations
 
                     b.Property<int>("RoomID");
 
-                    b.Property<int>("ID");
-
                     b.Property<string>("Rate");
 
                     b.Property<string>("RoomNumber");
@@ -207,7 +205,7 @@ namespace AsyncInn.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("AsyncInn.Models.Room", "Room")
-                        .WithMany()
+                        .WithMany("HotelRooms")
                         .HasForeignKey("RoomID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
@@ -220,7 +218,7 @@ namespace AsyncInn.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("AsyncInn.Models.Room", "Room")
-                        .WithMany()
+                        .WithMany("RoomAmenities")
                         .HasForeignKey("RoomID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

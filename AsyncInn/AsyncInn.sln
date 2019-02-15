@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AsyncInn", "AsyncInn\AsyncInn.csproj", "{AF18602C-BA0F-431E-ADAF-CE8A15A9381C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsyncInnTests", "AsyncInnTests\AsyncInnTests.csproj", "{5F304478-B700-4F93-B43F-8236A20CA989}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AsyncInnTests", "AsyncInnTests\AsyncInnTests.csproj", "{5F304478-B700-4F93-B43F-8236A20CA989}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

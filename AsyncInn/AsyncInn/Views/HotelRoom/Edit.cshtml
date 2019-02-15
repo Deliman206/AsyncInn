@@ -1,11 +1,11 @@
 ﻿@model AsyncInn.Models.HotelRoom;
 @{
     Layout = "_Layout";
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Edit";
 }
 <h1>HOTEL ROOMS</h1>
 <div class="row">
-    <form class="col s12" asp-action="Create" method="post">
+    <form class="col s12" asp-action="Edit" method="post">
         <div class="row">
             <div class="input-field col s6">
                 <select asp-for="@Model.HotelID" asp-items="ViewBag.Hotels"></select>

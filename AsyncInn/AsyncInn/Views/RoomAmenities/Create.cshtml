@@ -1,0 +1,21 @@
+﻿@model AsyncInn.Models.RoomAmenities;
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Create";
+}
+<h1>HOTELROOMS</h1>
+<div class="row">
+    <form class="col s12" asp-action="Create" method="post">
+        <div class="row">
+            <div class="input-field col s6">
+                <select asp-for="@Model.RoomID" asp-items="ViewBag.Rooms"></select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <select asp-for="@Model.AmenitiesID" asp-items="ViewBag.Amentities"></select>
+            </div>
+        </div>
+        <input class="btn waves-effect waves-light" type="submit" value="Submit" />
+    </form>
+</div>

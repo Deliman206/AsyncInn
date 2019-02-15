@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace AsyncInn.Migrations
 {
-    public partial class TestMigration : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -55,9 +55,8 @@ namespace AsyncInn.Migrations
                 {
                     HotelID = table.Column<int>(nullable: false),
                     RoomID = table.Column<int>(nullable: false),
-                    RoomNumber = table.Column<decimal>(nullable: false),
-                    Rate = table.Column<decimal>(nullable: false),
-                    PetFriendly = table.Column<byte>(nullable: false)
+                    RoomNumber = table.Column<string>(nullable: true),
+                    Rate = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -101,6 +100,18 @@ namespace AsyncInn.Migrations
                 });
 
             migrationBuilder.InsertData(
+                table: "AMENITIES",
+                columns: new[] { "ID", "Name" },
+                values: new object[,]
+                {
+                    { 1, "Coffee Maker" },
+                    { 2, "TV" },
+                    { 3, "WiFi" },
+                    { 4, "Bathroom Attire" },
+                    { 5, "Mini Bar" }
+                });
+
+            migrationBuilder.InsertData(
                 table: "HOTEL",
                 columns: new[] { "ID", "City", "Name", "Phone" },
                 values: new object[,]
@@ -117,12 +128,12 @@ namespace AsyncInn.Migrations
                 columns: new[] { "ID", "Layout", "Name" },
                 values: new object[,]
                 {
-                    { 1, 0, "" },
-                    { 2, 0, "" },
-                    { 3, 1, "" },
-                    { 4, 1, "" },
-                    { 5, 2, "" },
-                    { 6, 2, "" }
+                    { 1, 0, "The Pad" },
+                    { 2, 0, "Relax and Meditate" },
+                    { 3, 1, "The Get Away" },
+                    { 4, 1, "Comfy Office" },
+                    { 5, 2, "Family Snoozer" },
+                    { 6, 2, "Party Room" }
                 });
 
             migrationBuilder.CreateIndex(

@@ -22,9 +22,9 @@ namespace AsyncInn.Controllers
             _contextDB = contextDB;
         }
         
-        public IActionResult Index()
+        public  IActionResult Index()
         {
-           List<Hotel> list = _contextDB.HOTEL.ToList();
+            List<Hotel> list = _contextDB.HOTEL.Include("HotelRoom").ToList();
             return View(list);
         }
 
@@ -43,7 +43,7 @@ namespace AsyncInn.Controllers
                  hotels = hotels.Where(s => s.Name.Contains(searchString));
             }
 
-            return View(await hotels.ToListAsync());
+            return View(await hotels.Include("HotelRoom").ToListAsync());
         }
 
         [HttpPost]

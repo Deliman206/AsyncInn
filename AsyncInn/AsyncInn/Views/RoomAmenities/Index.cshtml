@@ -1,3 +1,62 @@
-﻿@{Layout = "../Shared/_Layout.cshtml";
+﻿@model IEnumerable<AsyncInn.Models.RoomAmenities>;
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Index";
 }
-<p>Hello from Room Amenitites!</p>
+@{
+
+}
+<h1>ROOM AMENITIES</h1>
+
+
+<div class="col s12">
+    <div class="row">
+        <div class="input-field col s7">
+            <a asp-action="Create"> Create</a>
+        </div>
+        <div class="input-field col s4">
+            <form asp-controller="RoomAmenities" asp-action="Index">
+                <p>
+                    Search: <input type="text" name="SearchString" />
+                    <input type="submit" value="Filter" />
+                </p>
+            </form>
+        </div>
+        <div class="input-field col s1"></div>
+    </div>
+</div>
+
+
+
+<table>
+    <thead>
+        <tr>
+            <th>Rooms</th>
+            <th>Amenities</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var ra in Model)
+        {
+            <tr>
+                <td>@ra.Room.Name</td>
+                <td>@ra.Amenities.Name</td>
+                <td>
+                    @*<a class="btn waves-effect waves-light">
+                        @(Html.ActionLink("Edit", "Edit", new { amenities = ra.AmenitiesID, room = ra.RoomID }))
+
+                        <i class="material-icons">edit</i>
+                    </a>*@
+                </td>
+                <td>
+                    <a class="btn waves-effect waves-light">
+                        @(Html.ActionLink("Delete", "Delete", new { amenities = ra.AmenitiesID, room = ra.RoomID }))
+
+                        <i class="material-icons">clear</i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
