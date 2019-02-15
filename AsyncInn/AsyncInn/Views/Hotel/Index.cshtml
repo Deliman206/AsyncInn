@@ -33,31 +33,33 @@
             <th>Name</th>
             <th>City</th>
             <th>Phone Number</th>
-
+            <th>Room Count</th>
         </tr>
     </thead>
 
     <tbody>
         @foreach (Hotel hotel in Model)
         {
-            <tr>
-                <td>@hotel.ID</td>
-                <td>@hotel.Name</td>
-                <td>@hotel.City</td>
-                <td>@hotel.Phone</td>
-                <td>
-                    <a class="btn waves-effect waves-light" asp-action="Edit" asp-route-id="@hotel.ID">
-                        Edit
-                        <i class="material-icons">edit</i>
-                    </a>
-                </td>
-                <td>
-                    <a class="btn waves-effect waves-light" asp-action="Delete" asp-route-id="@hotel.ID">
-                        Delete
-                        <i class="material-icons">clear</i>
-                    </a>
-                </td>
-            </tr>
+        <tr>
+            <td>@hotel.ID</td>
+            <td>@hotel.Name</td>
+            <td>@hotel.City</td>
+            <td>@hotel.Phone</td>
+            <td>@hotel.HotelRoom.Count</td>
+
+            <td>
+                <a class="btn waves-effect waves-light" asp-action="Edit" asp-route-id="@hotel.ID">
+                    Edit
+                    <i class="material-icons">edit</i>
+                </a>
+            </td>
+            <td>
+                <a class="btn waves-effect waves-light" asp-action="Delete" asp-route-id="@hotel.ID">
+                    Delete
+                    <i class="material-icons">clear</i>
+                </a>
+            </td>
+        </tr>
         }
     </tbody>
 </table>

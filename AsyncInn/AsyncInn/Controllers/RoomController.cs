@@ -24,7 +24,8 @@ namespace AsyncInn.Controllers
 
         public IActionResult Index()
         {
-            List<Room> list = _contextDB.ROOM.ToList();
+            List<Room> list = _contextDB.ROOM.Include("RoomAmenities").ToList();
+
             return View(list);
         }
 

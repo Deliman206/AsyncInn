@@ -1,5 +1,4 @@
-﻿@using AsyncInn.Models;
-@model IEnumerable<AsyncInn.Models.HotelRoom>;
+﻿@model IEnumerable<AsyncInn.Models.HotelRoom>;
 @{
     Layout = "_Layout";
     ViewData["Title"] = "Index";
@@ -7,7 +6,7 @@
 @{
     
 }
-<h1>HOTELROOMS</h1>
+<h1>HOTEL ROOMS</h1>
 
 
 <div class="col s12">
@@ -36,31 +35,39 @@
             <th>Room Number</th>
             <th>Layout</th>
             <th>Rate</th>
-            <th>Pet Friendly</th>
         </tr>
     </thead>
 
     <tbody>
         @foreach (var hr in Model)
         {
-            <tr>
-                <td>@hr.Hotel.Name</td>
-                <td>@hr.RoomNumber</td>
-                <td>@hr.Room.Layout</td>
-                <td>@hr.Rate</td>
-                <td>
-                    <a class="btn waves-effect waves-light" asp-action="Edit" asp-route-id="@hr.ID">
-                        Edit
-                        <i class="material-icons">edit</i>
-                    </a>
-                </td>
-                <td>
-                    <a class="btn waves-effect waves-light" asp-action="Delete" asp-route-id="@hr.ID">
-                        Delete
-                        <i class="material-icons">clear</i>
-                    </a>
-                </td>
-            </tr>
+        <tr>
+            <td>@hr.Hotel.Name</td>
+
+            <td>@hr.RoomNumber</td>
+            <td>@hr.Room.Layout</td>
+            <td>@hr.Rate</td>
+
+            <td>
+                
+               
+                
+                <a class="btn waves-effect waves-light">
+                    @(Html.ActionLink("Edit", "Edit", new { hotel = hr.HotelID, room = hr.RoomID }))
+                    <i class="material-icons">edit</i>
+                </a>
+            
+                    
+
+
+            </td>
+            <td>
+                <a class="btn waves-effect waves-light">
+                    @(Html.ActionLink("Delete", "Delete", new { hotel = hr.HotelID, room = hr.RoomID }))
+                    <i class="material-icons">clear</i>
+                </a>
+            </td>
+        </tr>
         }
     </tbody>
 </table>

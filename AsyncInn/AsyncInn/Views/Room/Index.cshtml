@@ -30,6 +30,7 @@
             <th>ID</th>
             <th>Name</th>
             <th>Layout</th>
+            <th>Amenities</th>
 
         </tr>
     </thead>
@@ -37,23 +38,25 @@
     <tbody>
         @foreach (Room room in Model)
         {
-            <tr>
-                <td>@room.ID</td>
-                <td>@room.Name</td>
-                <td>@room.Layout</td>
-                <td>
-                    <a class="btn waves-effect waves-light" asp-action="Edit" asp-route-id="@room.ID">
-                        Edit
-                        <i class="material-icons">edit</i>
-                    </a>
-                </td>
-                <td>
-                    <a class="btn waves-effect waves-light" asp-action="Delete" asp-route-id="@room.ID">
-                        Delete
-                        <i class="material-icons">clear</i>
-                    </a>
-                </td>
-            </tr>
+        <tr>
+            <td>@room.ID</td>
+            <td>@room.Name</td>
+            <td>@room.Layout</td>
+            <td>@room.RoomAmenities.Count</td>
+
+            <td>
+                <a class="btn waves-effect waves-light" asp-action="Edit" asp-route-id="@room.ID">
+                    Edit
+                    <i class="material-icons">edit</i>
+                </a>
+            </td>
+            <td>
+                <a class="btn waves-effect waves-light" asp-action="Delete" asp-route-id="@room.ID">
+                    Delete
+                    <i class="material-icons">clear</i>
+                </a>
+            </td>
+        </tr>
         }
     </tbody>
 </table>

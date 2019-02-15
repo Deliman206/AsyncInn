@@ -12,16 +12,5 @@ namespace AsyncInn.Models.ViewModel
         public HotelRoom HotelRoom { get; set; }
 
         public HotelRoomCreateViewModel() { }
-
-       public HotelRoomCreateViewModel(int hotelID, int roomId, string roomNumber, string rate)
-        {
-            HotelRoom hr = new HotelRoom();
-            hr.HotelID = hotelID;
-            hr.RoomID = roomId;
-            hr.RoomNumber = roomNumber;
-            hr.Rate = rate;
-
-            HotelRoom = hr;
-        }
     }
 }

@@ -118,13 +118,9 @@ namespace AsyncInn.Migrations
 
                     b.Property<int>("RoomID");
 
-                    b.Property<int>("ID");
+                    b.Property<string>("Rate");
 
-                    b.Property<byte>("PetFriendly");
-
-                    b.Property<decimal>("Rate");
-
-                    b.Property<decimal>("RoomNumber");
+                    b.Property<string>("RoomNumber");
 
                     b.HasKey("HotelID", "RoomID");
 
@@ -207,7 +203,7 @@ namespace AsyncInn.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("AsyncInn.Models.Room", "Room")
-                        .WithMany()
+                        .WithMany("HotelRooms")
                         .HasForeignKey("RoomID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
@@ -220,7 +216,7 @@ namespace AsyncInn.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("AsyncInn.Models.Room", "Room")
-                        .WithMany()
+                        .WithMany("RoomAmenities")
                         .HasForeignKey("RoomID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
